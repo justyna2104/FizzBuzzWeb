@@ -1,0 +1,40 @@
+﻿@page
+@model FizzBuzzWeb.Pages.LastCheckedModel
+@{
+    ViewData["Title"] = "Last Checked";
+}
+
+<p>Data stored in session: </p>
+@if (Model.FizzBuzz != null)
+{
+    <p>
+        Your value : @Model.FizzBuzz.value
+    </p>
+    <p>Date: @DateTime.Now</p>
+}
+
+@{string result = "";
+
+    if (Model.FizzBuzz != null && ModelState.IsValid) { 
+
+    if (Model.FizzBuzz.value % 3 == 0)
+    {
+        result += "Fizz";
+
+    }
+    if (Model.FizzBuzz.value % 5 == 0)
+    {
+        result += "Buzz";
+    }
+    if (Model.FizzBuzz.value % 5 != 0 && Model.FizzBuzz.value % 3 != 0)
+    {
+        <p>The number is not Fizz, Buzz or Fizzbuzz</p>
+
+    }
+
+    if (result != "")
+    {
+      <p>Result: @result</p>
+        }
+    }
+}

@@ -1,0 +1,48 @@
+﻿@page
+@model FizzBuzzWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="post">
+        <label asp-for="Fizzbuzz.value"></label>
+        <input asp-for="Fizzbuzz.value" /><br />
+        <strong><span asp-validation-for="Fizzbuzz.value" class="text-danger"></span></strong><br />
+        <button type="submit">Submit</button>
+    </form>
+
+    <p></p>
+
+    @{
+        string result = "";
+        
+
+        @if (Model.Fizzbuzz != null && ModelState.IsValid)
+    {
+    @if (Model.Fizzbuzz.value % 3 == 0)
+    {
+        result += "Fizz";
+    }
+    if (Model.Fizzbuzz.value % 5 == 0)
+    {
+        result += "Buzz";
+    }
+    if(Model.Fizzbuzz.value % 5 != 0 && Model.Fizzbuzz.value % 3 != 0)
+    {
+        <p>The number is not Fizz, Buzz or Fizzbuzz</p>
+            }
+
+            if (result != "")
+            {
+            <p>Result: @result</p>
+            }
+    }
+        }
+</div>
+
+
+
+    
