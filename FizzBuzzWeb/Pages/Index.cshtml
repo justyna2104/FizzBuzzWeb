@@ -16,30 +16,13 @@
 
     <p></p>
 
-    @{
-        string result = "";
-        
-
-        @if (Model.Fizzbuzz != null && ModelState.IsValid)
+    
+  
+    @if (Model.Fizzbuzz != null && ModelState.IsValid)
     {
-    @if (Model.Fizzbuzz.value % 3 == 0)
-    {
-        result += "Fizz";
-    }
-    if (Model.Fizzbuzz.value % 5 == 0)
-    {
-        result += "Buzz";
-    }
-    if(Model.Fizzbuzz.value % 5 != 0 && Model.Fizzbuzz.value % 3 != 0)
-    {
-        <p>The number is not Fizz, Buzz or Fizzbuzz</p>
-            }
-
-            if (result != "")
-            {
-            <p>Result: @result</p>
-            }
-    }
+        <p>
+            Result:  @Model.Fizzbuzz.Result()
+        </p>
         }
 </div>
 
