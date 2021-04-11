@@ -16,11 +16,13 @@ namespace FizzBuzzWeb.Models
         [Range(1, 1000, ErrorMessage = "Number out of range. Try again"), Required(ErrorMessage = "This value is required")]
         public int value { get; set; }
 
+        public string result { get; set; } = "";
 
+        public DateTime time { get; set; } = DateTime.Now;
 
         public string Result()
         {
-            string result = "";
+            
 
                 if (value % 3 == 0)
                 {
