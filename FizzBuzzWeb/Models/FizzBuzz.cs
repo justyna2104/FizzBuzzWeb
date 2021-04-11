@@ -12,6 +12,8 @@ namespace FizzBuzzWeb.Models
 
     public class FizzBuzz
     {
+        public int id { get; set; }
+
         [Display(Name = "Enter your value ")]
         [Range(1, 1000, ErrorMessage = "Number out of range. Try again"), Required(ErrorMessage = "This value is required")]
         public int value { get; set; }
