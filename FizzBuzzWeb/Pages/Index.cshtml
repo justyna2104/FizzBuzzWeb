@@ -16,16 +16,26 @@
 
     <p></p>
 
-    
-  
+
+
     @if (Model.Fizzbuzz != null && ModelState.IsValid)
     {
         <p>
             Result:  @Model.Fizzbuzz.Result()
         </p>
-        }
+    }
 </div>
 
 
+@*@foreach (var item in Model.Results)
+{
+<p>
+    @Html.DisplayFor(modelItem => item.value)
+    @Html.DisplayFor(modelItem => item.result)
+    @Html.DisplayFor(modelItem => item.time)
 
-    
+</p>
+}*@
+
+
+
