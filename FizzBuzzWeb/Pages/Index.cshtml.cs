@@ -15,9 +15,11 @@ namespace FizzBuzzWeb.Pages
 {
     public class IndexModel : PageModel
     {
+        private FizzBuzzContext fizzBuzzContext;
+
         private readonly ILogger<IndexModel> _logger;
 
-        private readonly FizzBuzzContext _context;
+        
 
 
         [BindProperty]
@@ -26,13 +28,14 @@ namespace FizzBuzzWeb.Pages
         public IndexModel(ILogger<IndexModel> logger, FizzBuzzContext context)
         {
             _logger = logger;
-            _context = context;
+            fizzBuzzContext = context;
+            
         }
 
         public IList<FizzBuzz> Results { get; set; }
         public void OnGet()
         {
-            Results = _context.FizzBuzz.ToList();
+            Results = fizzBuzzContext.FizzBuzz.ToList();
         }
 
         public IActionResult OnPost()
@@ -41,11 +44,10 @@ namespace FizzBuzzWeb.Pages
             {
                 HttpContext.Session.SetString("LastChecked", JsonConvert.SerializeObject(Fizzbuzz));
 
-                // tu sie zaczyna crap which i don't understand 
-                /*var db = Database.Open("FizzBuzzDB");
-                var insertCommand = "INSERT INTO Movies (Title, Genre, Year) VALUES(@0, @1, @2)";
-                db.Execute(insertCommand, , genre, year);*/
-
+                Fizzbuzz.result = Fizzbuzz.Result();
+                fizzBuzzContext.Add(Fizzbuzz);
+                fizzBuzzContext.SaveChanges();
+                Fizzbuzz.result = "";
                 return Page();
             }
             return Page();
