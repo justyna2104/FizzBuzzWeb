@@ -35,7 +35,7 @@ namespace FizzBuzzWeb.Pages
         public IList<FizzBuzz> Results { get; set; }
         public void OnGet()
         {
-            Results = fizzBuzzContext.FizzBuzz.ToList();
+           // Results = fizzBuzzContext.FizzBuzz.ToList();
         }
 
         public IActionResult OnPost()

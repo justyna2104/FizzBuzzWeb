@@ -25,5 +25,7 @@ namespace FizzBuzzWeb.Pages.Results
         {
             FizzBuzz = await _context.FizzBuzz.ToListAsync();
         }
+
+        
     }
 }
