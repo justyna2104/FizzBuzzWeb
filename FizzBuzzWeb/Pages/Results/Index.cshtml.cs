@@ -21,11 +21,12 @@ namespace FizzBuzzWeb.Pages.Results
 
         public IList<FizzBuzz> FizzBuzz { get;set; }
 
-        public async Task OnGetAsync()
+        public void OnGet()
         {
-            FizzBuzz = await _context.FizzBuzz.ToListAsync();
+         
+            FizzBuzz = _context.FizzBuzz.Take(10).OrderByDescending(d => d.time).ToList();
         }
 
-        
+
     }
 }

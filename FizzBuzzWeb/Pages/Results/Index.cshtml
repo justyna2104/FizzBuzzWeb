@@ -26,50 +26,26 @@
         </tr>
     </thead>
     <tbody>
-     
-        @if (Model.FizzBuzz.Count > 10)
+
+
+        @foreach (var item in Model.FizzBuzz)
         {
-            @for (int i = Model.FizzBuzz.Count-1; i > Model.FizzBuzz.Count-11; i--)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].value)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].result)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].time)
-                    </td>
-                    <td>
-                       @*<a asp-page="./Edit" asp-route-id="@Model.FizzBuzz[i].id">Edit</a> |*@
-                        <a asp-page="./Details" asp-route-id="@Model.FizzBuzz[i].id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@Model.FizzBuzz[i].id">Delete</a>
-                    </td>
-                </tr>
-            }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.result)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
         }
-        else
-        {
-            @for(int i = Model.FizzBuzz.Count-1; i>0; i--)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].value)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].result)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.FizzBuzz[i].time)
-                    </td>
-                    <td>
-                        @*<a asp-page="./Edit" asp-route-id="@Model.FizzBuzz[i].id">Edit</a> |*@
-                        <a asp-page="./Details" asp-route-id="@Model.FizzBuzz[i].id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@Model.FizzBuzz[i].id">Delete</a>
-                    </td>
-                </tr>
-            }
-        }
+
         </tbody>
 </table>
