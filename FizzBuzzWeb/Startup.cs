@@ -30,8 +30,8 @@ namespace FizzBuzzWeb
                 options.UseSqlServer(Configuration.GetConnectionString("FizzBuzzDB"));
             });
 
-            /*services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        .AddEntityFrameworkStores<FizzBuzzWebContext>(); // tutaj dodane moje idk po co */
+            services.AddIdentityCore<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        .AddEntityFrameworkStores<FizzBuzzWebContext>(); // tutaj dodane moje */
 
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
@@ -42,7 +42,7 @@ namespace FizzBuzzWeb
                 options.Cookie.IsEssential = true;
             });
 
-            //tutaj te¿ moje bo walcze z logowaniem
+           
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings.
@@ -98,7 +98,7 @@ namespace FizzBuzzWeb
 
             app.UseRouting();
 
-            app.UseAuthentication(); // to te¿ moje
+            app.UseAuthentication(); // to moje
             app.UseAuthorization();
             app.UseSession(); // must be insertet after UseRouting and before UseEndpoints
 

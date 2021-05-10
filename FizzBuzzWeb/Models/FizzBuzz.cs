@@ -14,8 +14,7 @@ namespace FizzBuzzWeb.Models
     {
         public int id { get; set; }
 
-        // user ID from AspNetUser table.
-        //public string UserName { get; set; }
+      
 
         [Display(Name = "Enter your value ")]
         [Range(1, 1000, ErrorMessage = "Number out of range. Try again"), Required(ErrorMessage = "This value is required")]
@@ -50,13 +49,8 @@ namespace FizzBuzzWeb.Models
             return result;
         }
 
-       // public ContactStatus Status { get; set; }
+      
     }
 
-   /* public enum ContactStatus
-    {
-        Submitted,
-        Approved,
-        Rejected
-    }*/
+
 }
