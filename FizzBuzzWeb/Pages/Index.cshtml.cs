@@ -10,9 +10,12 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using FizzBuzzWeb.Data;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FizzBuzzWeb.Pages
 {
+    
+
     public class IndexModel : PageModel
     {
         private FizzBuzzContext fizzBuzzContext;
