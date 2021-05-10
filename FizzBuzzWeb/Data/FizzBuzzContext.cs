@@ -10,5 +10,6 @@ namespace FizzBuzzWeb.Data
 
         public DbSet<FizzBuzz> FizzBuzz { get; set; }
         
+
     }
 }
