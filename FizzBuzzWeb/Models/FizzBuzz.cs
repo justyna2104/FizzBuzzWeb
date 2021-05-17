@@ -14,9 +14,9 @@ namespace FizzBuzzWeb.Models
     {
         public int id { get; set; }
 
-        public int userId { get; set; }
+       // public int userId { get; set; }
 
-        public AspNetUsers User { get; set; }
+        //public AspNetUsers AspNetUsers { get; set; }
 
         [Display(Name = "Enter your value ")]
         [Range(1, 1000, ErrorMessage = "Number out of range. Try again"), Required(ErrorMessage = "This value is required")]

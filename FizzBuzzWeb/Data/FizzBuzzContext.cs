@@ -10,10 +10,13 @@ namespace FizzBuzzWeb.Data
 
         public DbSet<FizzBuzz> FizzBuzz { get; set; }
         
-        public DbSet<AspNetUsers> AspNetUsers { get; set; }
+       // public DbSet<AspNetUsers> AspNetUsers { get; set; }
 
        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+           /* modelBuilder.Entity<FizzBuzz>()
+            .HasOne(e => e.AspNetUsers)
+            .WithMany(c => c.FizzBuzz);*/
             base.OnModelCreating(modelBuilder);
         }
 

@@ -11,11 +11,13 @@ using Newtonsoft.Json;
 using FizzBuzzWeb.Data;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
+using FizzBuzzWeb.Utils;
 
 namespace FizzBuzzWeb.Pages
 {
-    
 
+    [CustomFilterAttributes]
     public class IndexModel : PageModel
     {
         private FizzBuzzContext fizzBuzzContext;
@@ -55,6 +57,9 @@ namespace FizzBuzzWeb.Pages
             }
             return Page();
         }
+
+
+     
 
     }
 }

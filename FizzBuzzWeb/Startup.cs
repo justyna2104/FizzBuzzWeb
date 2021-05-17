@@ -1,6 +1,7 @@
 using FizzBuzzWeb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -92,7 +93,12 @@ namespace FizzBuzzWeb
                 app.UseHsts();
             }
 
-           
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -106,6 +112,8 @@ namespace FizzBuzzWeb
             {
                 endpoints.MapRazorPages();
             });
+
+
         }
     }
 }
