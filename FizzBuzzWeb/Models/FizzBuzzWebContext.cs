@@ -137,6 +137,8 @@ namespace FizzBuzzWeb.Models
             });
 
             OnModelCreatingPartial(modelBuilder);
+
+            base.OnModelCreating(modelBuilder); //to ja tutaj dodałam 
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
